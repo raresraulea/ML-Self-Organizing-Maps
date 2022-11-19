@@ -1,16 +1,23 @@
-# This is a sample Python script.
+from matplotlib import pyplot as plt
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+import constants
+import similarities
+from Centroid import Centroid
+from Point import Point
+import numpy as np
 
+from pltUtils import config_plt
+from randomGenerators import  generate_random_number_of_centroids, colors, yPoints, xPoints
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+points = []
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+with open('data.txt') as f:
+    lines = f.readlines()
+    for line in lines:
+        words = line.split()
+        points.append(Point(float(words[0]), float(words[1])))
+    if len(colors) == 0:
+        colors = list(map(lambda l: constants.zones[int(l.split()[2])][2], lines))
+if len(xPoints) == 0:
+    xPoints = list(map(lambda p: p.x, points))
+    yPoints = list(map(lambda p: p.y, points))
