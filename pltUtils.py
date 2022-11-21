@@ -13,7 +13,12 @@ def config_plt():
     plt.axis([constants.xAxisMin, constants.xAxisMax, constants.yAxisMin, constants.yAxisMax])
 
 
-def display_plot_with_data():
-    for i in range(0, constants.dataSize):
-        plt.scatter(xPoints[i], yPoints[i], c=colors[i], s=20, linewidth=0)
+def put_data_on_plot(x_axis_points=xPoints, y_axis_points=yPoints, point_colors=colors):
+    for i in range(0, len(x_axis_points)):
+        plt.scatter(x_axis_points[i], y_axis_points[i], c=point_colors[i], s=20, linewidth=0)
+
+
+def display_plot_with_data(x_axis_points=xPoints, y_axis_points=yPoints, point_colors=colors):
+    for i in range(0, len(x_axis_points)):
+        plt.scatter(x_axis_points[i], y_axis_points[i], c=point_colors[i], s=20, linewidth=0)
     plt.show()
