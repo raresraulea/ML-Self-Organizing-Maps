@@ -32,7 +32,7 @@ def generate_new_data():
     with open('data.txt', 'a') as f:
         for i in range(constants.dataSize):
             (zoneX, zoneY, zoneColor), zoneIndex = generate_random_zone()
-            colors.append(zoneColor) 
+            colors.append(zoneColor)
             randomXCoord = generate_coordinate_near_average(zoneX)
             xPoints.append(randomXCoord)
             randomYCoord = generate_coordinate_near_average(zoneY)
